@@ -51,8 +51,8 @@ function controles() {
 
 
 function muestra(item) {
-    
-   $('#recomienda'+item).css('display','none');
+
+    $('#recomienda' + item).css('display', 'none');
 }
 
 function subcontrol($id, $titulo) {
@@ -80,10 +80,20 @@ function subcontrol($id, $titulo) {
                         + "<p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray' style='margin-left: 15px;'>"
                         + "<strong class='d-block text-gray-dark'>"
                         + value.titulo
-                        + "<input type='text'  class='btn btn-warning btn-sm' value='Recomendación' title='"+ value.descripcion +"' >"
+                        + "<input type='text' style='font-size:11px;'  class='btn btn-warning btn-sm float-right' value='Recomendación' title='" + value.descripcion + "' >"
                         + "</strong>"
                         + "</p>"
-                        + "</div>"                        
+                        + "</div>"
+                        + "<div>"
+                        + "<div class='form-check custom-control custom-radio custom-control-inline'>"
+                        + "<input type='radio' id='customRadioInline1' name='customRadioInline1' class='custom-control-input'>"
+                        + "<label class='custom-control-label' for='customRadioInline1'>Toggle this custom radio</label>"
+                        + "</div>"
+                 + "<div class=' form-check custom-control custom-radio custom-control-inline'>"
+                        + "<input type='radio' id='customRadioInline1' name='customRadioInline1' class='custom-control-input'>"
+                        + "<label class='custom-control-label' for='customRadioInline1'>Toggle this custom radio</label>"
+                        + "</div>"
+                        + "</div>"
                         );
             });
             $('#modalsubcontrol').modal('show');
