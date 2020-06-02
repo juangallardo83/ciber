@@ -33,7 +33,7 @@ function controles() {
             $.each(data, function (key, value) {
                 $('#controles').append(
                         "<li class='list-group-item d-flex justify-content-between align-items-center'>"
-                        + "<button class='btn btn-link' onclick='subcontrol("+ value.id +",\"" + value.nomcuest + "\")' id='nomcontrol' type='button' data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>"
+                        + "<button class='btn btn-link' onclick='subcontrol(" + value.id + ",\"" + value.nomcuest + "\")' id='nomcontrol' type='button' data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>"
                         + value.nomcuest
                         + "</button>"
                         + "<h5><span class='badge badge-success badge-pill'>100%</span></h5>"
@@ -48,8 +48,15 @@ function controles() {
 }
 
 
-function subcontrol($id,$titulo) {
+
+
+function muestra(item) {
     
+   $('#recomienda'+item).css('display','none');
+}
+
+function subcontrol($id, $titulo) {
+
     var datos = {
         "idcontrol": $id
     };
@@ -65,19 +72,18 @@ function subcontrol($id,$titulo) {
             $('#itemsub').html("");
             $('#ModalTitulo').text($titulo);
             $.each(data, function (key, value) {
+                var item = (key + 1);
                 $('#itemsub').append(
                         "<div class='media text-muted pt-3'>"
-                        + "<svg class='bd-placeholder-img mr-2 rounded' width='32' height='32'  preserveAspectRatio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: 32x32'>"
                         + "<title>Placeholder</title>"
-                        + "<rect width='100%' height='100%' fill='#007bff'></rect>"
-                        + "<text x='50%' y='50%' fill='#007bff' dy='.3em'>32x32</text></svg>"
-                        + "<p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'>"
+                        + "<span class='badge badge-primary badge-pill'>" + item + "</span>"
+                        + "<p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray' style='margin-left: 15px;'>"
                         + "<strong class='d-block text-gray-dark'>"
                         + value.titulo
+                        + "<input type='text'  class='btn btn-warning btn-sm' value='Recomendación' title='"+ value.descripcion +"' >"
                         + "</strong>"
-                        + value.descripcion
                         + "</p>"
-                        + "</div>"
+                        + "</div>"                        
                         );
             });
             $('#modalsubcontrol').modal('show');
@@ -86,6 +92,8 @@ function subcontrol($id,$titulo) {
     return false;
 
 }
+
+
 
 
 
