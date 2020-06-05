@@ -80,20 +80,13 @@ function subcontrol($id, $titulo) {
                         + "<p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray' style='margin-left: 15px;'>"
                         + "<strong class='d-block text-gray-dark'>"
                         + value.titulo
-                        + "<input type='text' style='font-size:11px;'  class='btn btn-warning btn-sm float-right' value='Recomendación' title='" + value.descripcion + "' >"
+                        + "<button type='button' onclick='evaluar(\"" + value.titulo + "\")'  class='btn btn-outline-info btn-sm float-right' > <i class='fa fa-list'></i>    Evaluar</button>"
                         + "</strong>"
+                        + "<small class='badge btn-outline-success' style='font-size:12px;' title='" + value.descripcion + "'><i class='fa fa-info-circle'></i> Recomendación</small>"
                         + "</p>"
                         + "</div>"
-                        + "<div>"
-                        + "<div class='form-check custom-control custom-radio custom-control-inline'>"
-                        + "<input type='radio' id='customRadioInline1' name='customRadioInline1' class='custom-control-input'>"
-                        + "<label class='custom-control-label' for='customRadioInline1'>Toggle this custom radio</label>"
-                        + "</div>"
-                 + "<div class=' form-check custom-control custom-radio custom-control-inline'>"
-                        + "<input type='radio' id='customRadioInline1' name='customRadioInline1' class='custom-control-input'>"
-                        + "<label class='custom-control-label' for='customRadioInline1'>Toggle this custom radio</label>"
-                        + "</div>"
-                        + "</div>"
+
+
                         );
             });
             $('#modalsubcontrol').modal('show');
@@ -101,6 +94,11 @@ function subcontrol($id, $titulo) {
     });
     return false;
 
+}
+
+function evaluar(titulo){
+    $('#pregunta').html(titulo);
+    $('#modalEvaluar').modal('show');
 }
 
 
