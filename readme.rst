@@ -1,14 +1,9 @@
 ###################
-What is CodeIgniter
+Que es Cibermadurez
 ###################
-
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Este proyecto es parte de la plataforma cibermadurez el cual es un proyecto académico para la Industria, donde resguardamos la confidencialidad de los datos compartiendo solo resultados a nivel agregado respecto del proceso de adopción de un modelo de madurez de ciberseguridad adecuado a la micro y pequeña empresa de la Industria Chilena. Esta plataforma permitirá acompañar en particular a las micro y pequeñas empresas en el avance de su nivel de cibermadurez, recibiendo recomendaciones y descargables durante el periodo de acompañamiento de manera de poder validar la hipótesis general del proyecto que es reducir la probabilidad de que ocurran incidentes de ciberseguridad a corto, mediano y largo plazo.
+El objetivo general de este proyecto de título es ayudar al objetivo del proyecto académico cibermadurez: “reducir la probabilidad de que ocurran incidentes de ciberseguridad en la microempresa y pequeña empresa” mediante dos objetivos específicos: 1) medición del nivel de ciberseguridad de una microempresa con un nivel de precisión con 90% y 2) la recomendación de medidas y prácticas que permitan a la organización subir su nivel de seguridad. 
+Para ello, en este proyecto se ha realizado un análisis respecto de diferentes modelos de madurez en ciberseguridad de manera de comprender las principales variables y analizar cuantas de ellas son posibles de medir en las micro y pequeñas empresas. Se ha realizado la adecuación correspondiente de manera de poder medir mediante el cumplimiento de ciertos parámetros de seguridad el nivel que se encuentra cada organización. Estos niveles son: “Parcial, Riesgo Informado”, “Repetible” y “Adaptativo”.
 
 *******************
 Release Information
