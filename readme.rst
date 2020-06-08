@@ -6,20 +6,16 @@ El objetivo general de este proyecto de título es ayudar al objetivo del proyec
 Para ello, en este proyecto se ha realizado un análisis respecto de diferentes modelos de madurez en ciberseguridad de manera de comprender las principales variables y analizar cuantas de ellas son posibles de medir en las micro y pequeñas empresas. Se ha realizado la adecuación correspondiente de manera de poder medir mediante el cumplimiento de ciertos parámetros de seguridad el nivel que se encuentra cada organización. Estos niveles son: “Parcial, Riesgo Informado”, “Repetible” y “Adaptativo”.
 
 *******************
-Release Information
+Información adicional
 *******************
+Los ciberataques son eventos maliciosos y sofisticados que intentan explotar los principios de confidencialidad, integridad y disponibilidad de las organizaciones causando pérdidas financieras y daños de reputación, entre otros.  En general, el número de amenazas y su complejidad aumenta cada día, así como la digitalización de las organizaciones, por lo que, así como es necesario que cada empresa aumente su madurez digital, es también necesario que aumente su madurez en seguridad. 
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
 
 **************************
-Changelog and New Features
+Cambios y entorno web
 **************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
-
+Los cambios del proyecto se están registrando a través de Github	: https://github.com/juangallardo83/ciber 
+La visualización del entorno de produción se está trabajando AWS 
 *******************
 Requisitos 
 *******************
