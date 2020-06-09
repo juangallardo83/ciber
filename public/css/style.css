@@ -1,3 +1,34 @@
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/static/Oswald-Light.ttf');
+}
+
+
+.fuente{
+     font-family: 'Oswald';
+     font-size: 30px;
+     
+}
+
+.circle {
+   width: 60px;
+   height: 60px;
+   background-color: #f54153;
+   border-radius: 50%;
+   margin-left: 10px;
+}
+
+.nivel{
+    margin-right: 40px;    
+}
+
+.posicion{
+     font-family: 'Oswald';
+     font-size: 32px;
+     margin-top: 2px;
+     font-weight: bold;
+}
+
 footer{
     position: fixed;
     margin-top: 140px;
@@ -11,7 +42,34 @@ footer{
 }
 
 .nav-color {
-    background-color: #36d278;
+    background-color: #2a435f;
     color: white;
     
+}
+
+.pregunta{
+
+    margin-top: 15px;
+    margin-right: 15px;
+    
+
+}
+
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.4rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+    background-color: #2a435f;
+    color: whitesmoke; 
+}
+
+.h6, h6 {
+    font-size: 0.99rem;
 }
