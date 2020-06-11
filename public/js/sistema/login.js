@@ -9,11 +9,11 @@ $('#btn_login').click(function () {
         data: datos,
         type: "POST",
         dataType: "json",
-        url: "http://localhost/ciber/index.php/UsuarioCI/login",
+        url: "index.php/UsuarioCI/login",
         success: function (data) {
            
             if(data){
-                window.location.href = "http://localhost/ciber/index.php/AutoevaluacionCI";
+                window.location.href = "index.php/AutoevaluacionCI";
                  //alert("acceso correcto");
             }
             else{

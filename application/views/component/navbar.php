@@ -5,7 +5,7 @@
     <div class="my-2 my-sm-0 form-inline nivel" >
          <label class="fuente" >Nivel de Madurez</label>
          <div id="circulo" class="circle">
-             <label id="madurez" class="posicion">1</label>
+             <label id="madurez" class="posicion"></label>
          </div>
     </div>
    
