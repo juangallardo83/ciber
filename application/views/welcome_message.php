@@ -4,12 +4,13 @@
         <meta charset="utf-8">
         <title>Inicio</title>       
         <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
         <link href="<?php echo base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
         <!--<?php require_once 'component/navbar.php'; ?>-->
-       
+
         <div class="container">
             <div id="login">
                 <h3 class="text-center text-white pt-5">Login </h3>
@@ -32,7 +33,7 @@
                                         <input type="button" name="btn_login" id="btn_login" class="btn btn-info btn-md btn-block" value="Acceder">
                                     </div>
                                     <div id="register-link" class="text-right">
-                                        <a href="#" class="text-info">Registrar</a>
+                                        <a href="#modalregistro" data-toggle="modal">Registrarse</a>
                                     </div>
                                 </form>
                             </div>
@@ -41,13 +42,82 @@
                 </div>
             </div>
         </div>
-        
-        
-        <!--<?php require_once 'component/footer.php'; ?>-->
-        
+
+
+        <div class="modal fade" id="modalregistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 500px;;margin-top: 150px;">
+                <div class="modal-content">
+                    <form id="registrarse">
+                        <div class="modal-header">
+                            <h6 class="modal-title" ><i class="fa fa-user-plus" aria-hidden="true"></i>    Resgistrarse </h6>
+                            <input type="hidden" id="idcontrol" value="" >
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Nombre</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="nombre">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Apellido Paterno</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="paterno">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Apellido Materno</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="materno">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="mail">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" id="pass">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <select name="empresa" class="form-control" id="empresa">
+                                            <option value="1">Micro Empresa</option>
+                                            <option value="2">Pequeña Empresa</option>
+                                            <option value="3">Mediana Empresa</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle-o" aria-hidden="true"></i>  Cerrar</button>
+                            <button type="button" class="btn btn-success" id="btn_registro" ><i class="fa fa-check-circle-o" aria-hidden="true"></i>   Guardar</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- <?php require_once 'component/footer.php'; ?> -->
+
         <script src="<?php echo base_url(); ?>public/js/jquery-3.5.1.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" type="text/javascript"></script>
-         <script src="<?php echo base_url(); ?>public/js/sistema/login.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>public/js/sistema/login.js" type="text/javascript"></script>
 
     </body>
 </html>

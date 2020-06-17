@@ -147,7 +147,7 @@
 
 
 
-        <?php require_once 'component/footer.php'; ?>
+        <!--<?php require_once 'component/footer.php'; ?> -->
         <script src="<?php echo base_url(); ?>public/js/jquery-3.5.1.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" type="text/javascript"></script>    
         <script src="<?php echo base_url(); ?>public/js/sistema/autoevaluacion.js" type="text/javascript"></script>
