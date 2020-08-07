@@ -13,7 +13,7 @@ $('#btn_login').click(function () {
         success: function (data) {
            
             if(data){
-                window.location.href = "http://localhost/ciber/index.php/AutoevaluacionCI";
+                window.location.href = "http://localhost/ciber/index.php/Dashboard";
                  //alert("acceso correcto");
             }
             else{
@@ -35,19 +35,49 @@ $('#btn_registro').click(function () {
         "password": $('#pass').val(),
         "idempresa": $('#empresa').val()
     };
-
-    $.ajax({
+    
+    if(datos.nombre === "" || datos.paterno === ""  || datos.materno === "" || datos.email === "" || datos.password === "" || datos.idempresa === "" ){
+        
+    }
+    else{
+        $.ajax({
         data: datos,
         type: "POST",
         dataType: "json",
         url: "http://localhost/ciber/index.php/UsuarioCI/registrarse",
         success: function (data) {
-            console.log(data);
+           
             $("#registrarse")[0].reset();
             $('#modalregistro').modal('toggle');
            
         }
     });
+    }
+    
+    
+
+    
+});
+
+
+$('#btn_logout').click(function () {
+   
+   alert("salir");
+        $.ajax({
+        //data: datos,
+        type: "POST",
+        dataType: "json",
+        url: "http://localhost/ciber/index.php/UsuarioCI/logout",
+        success: function (data) {
+           
+           
+           
+        }
+    });
+  
+    
+
+    
 });
 
 

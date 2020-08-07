@@ -16,7 +16,7 @@ class AutoevaluacionCI extends CI_Controller {
         echo json_encode($salida);
     }
 
-    public function control() {
+    public function control() {        
         $this->load->Model('Autoevaluacion');
         $controles = $this->Autoevaluacion->controles();
         echo json_encode($controles);
@@ -34,8 +34,7 @@ class AutoevaluacionCI extends CI_Controller {
 
         $idsubco = $this->input->post('idsubco');
         
-        $data = array(
-            'iduser' => $this->input->post('iduser'),            
+        $data = array(                    
             'idestado' => $this->input->post('idestado')
         );
 
@@ -50,5 +49,14 @@ class AutoevaluacionCI extends CI_Controller {
         $madurez = $this->Detalle->nivelMadurez();
         echo json_encode($madurez);
     }
+    
+    public function validaEvaluacion(){
+         $this->load->Model('Detalle');  
+        $id = $this->input->post('idsubco');
+        
+        $resultado = $this->Detalle->Evaluacion($id);
+        echo json_encode($resultado);
+    }
+            
 
 }

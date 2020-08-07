@@ -113,7 +113,7 @@ function subcontrol($id, $titulo) {
                         + "<p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray' style='margin-left: 15px;'>"
                         + "<strong class='d-block text-gray-dark'>"
                         + value.titulo
-                        + "<button type='button' onclick='evaluar(" + value.idsubco + ",\"" + value.titulo + "\")'  class='btn btn-outline-info btn-sm float-right pregunta' > <i class='fa fa-list'></i>    Evaluar</button>"
+                        + "<button type='button' onclick='evaluar(" + value.idsubco + ",\"" + value.titulo + "\");evaluacion();'  class='btn btn-outline-info btn-sm float-right pregunta' > <i class='fa fa-list'></i>    Evaluar</button>"
                         + "</strong>"
                         + "<small class='badge btn-outline-success' style='font-size:12px;' title='" + value.descripcion + "'><i class='fa fa-info-circle'></i> Recomendación</small>"
                                       
@@ -131,24 +131,64 @@ function subcontrol($id, $titulo) {
 
 }
 
+
+
+
+
+
 function evaluar(idsubco, titulo) {
+   
     $('#pregunta').html("<i class='fa fa-list' ></i> " + titulo);
     $('#idpregunta').val(idsubco);
-    $('#formEvaluar')[0].reset();
+    $('#formEvaluar')[0].reset();    
     $('#modalEvaluar').modal('show');
+   
 }
+
+function evaluacion() {
+  
+  var datos = {
+        "idsubco":  $('#idpregunta').val()        
+    };
+    $.ajax({
+        data: datos,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        url: "http://localhost/ciber/index.php/AutoevaluacionCI/validaEvaluacion",
+        success: function (data) {
+            console.log(data);
+            
+            if(data[0].idestado !== null){
+                $('#opcion'+data[0].idestado).prop('checked', true);
+            }
+            
+            
+
+        }
+    });
+    return false;
+    
+    
+}
+
+
+
+
 
 function insertarDetalle() {
     var opcion = $('input:radio[name=opcion]:checked').val();
     var idsubControl = $('#idpregunta').val();
     var idControl = $('#idcontrol').val();
+    var iduser = $('#iduser').val();
     
     
-    var datos = {
-        "iduser": 1,
+    var datos = {        
         "idsubco" : idsubControl,
         "idestado" : opcion
     };
+    
+    console.log(datos);
     $.ajax({
         data: datos,
         type: "POST",
@@ -179,7 +219,13 @@ function nivelMadurez() {
         cache: false,
         url: "http://localhost/ciber/index.php/AutoevaluacionCI/madurez",
         success: function (data) {
-            console.log(data[0].madurez); 
+             
+             
+            if(data[0].madurez === null)
+            {
+               $('#madurez').text("1");
+               $("#circulo").css("background-color","red");
+            } 
             if(data[0].madurez > 0 && data[0].madurez < 25)
             {
                $('#madurez').text("1");

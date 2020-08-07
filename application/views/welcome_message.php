@@ -55,43 +55,43 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-
+                    <form id="registrouser" class="needs-validation" novalidate>
                         <div class="modal-body">
-                            <form>
+                            
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-4 col-form-label">Nombre</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="nombre">
+                                        <input type="text" class="form-control" id="nombre" required>                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Apellido Paterno</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="paterno">
+                                        <input type="text" class="form-control" id="paterno" required>                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Apellido Materno</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="materno">
+                                        <input type="text" class="form-control" id="materno" required>                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="mail">
+                                        <input type="text" class="form-control" id="mail" required>                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
                                     <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="pass">
+                                        <input type="password" class="form-control" id="pass" required>                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Empresa</label>
                                     <div class="col-sm-8">
-                                        <select name="empresa" class="form-control" id="empresa">
+                                        <select name="empresa" class="form-control" id="empresa" required="">
                                             <option value="1">Micro Empresa</option>
                                             <option value="2">Pequeña Empresa</option>
                                             <option value="3">Mediana Empresa</option>
@@ -99,13 +99,13 @@
                                         </select>
                                     </div>
                                 </div>
-                            </form>
+                           
 
                         </div>
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle-o" aria-hidden="true"></i>  Cerrar</button>
-                            <button type="button" class="btn btn-success" id="btn_registro" ><i class="fa fa-check-circle-o" aria-hidden="true"></i>   Guardar</button>
+                            <button type="submit" class="btn btn-success" id="btn_registro" ><i class="fa fa-check-circle-o" aria-hidden="true"></i>   Guardar</button>
 
                         </div>
                     </form>

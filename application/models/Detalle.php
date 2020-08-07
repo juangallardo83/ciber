@@ -6,6 +6,7 @@ class Detalle extends CI_Model {
 
     public function insertar($data,$id) { 
         $this->db->where('idsubco', $id);
+        $this->db->where('iduser', $this->session->userdata('user'));
         $query = $this->db->update('detallesubco', $data);
         return $query;
        
@@ -15,11 +16,21 @@ class Detalle extends CI_Model {
         $sql= "SELECT
                 ROUND((sum(detallesubco.idestado) * 100) / (count(*) * 5)) as madurez
                 FROM
-                detallesubco";       
+                detallesubco
+                WHERE detallesubco.iduser = '". $this->session->userdata('user') ."'";       
         
         $query = $this->db->query($sql);
         return $query->result();
        
+    }
+    
+    public function Evaluacion($id){
+        $this->db->where('idsubco', $id);  
+        $this->db->where('iduser', $this->session->userdata('user'));
+        $query = $this->db->get('detallesubco');
+        
+        
+        return $query->result();
     }
 
 }

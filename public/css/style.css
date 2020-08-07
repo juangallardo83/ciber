@@ -1,21 +1,21 @@
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/static/Oswald-Light.ttf');
+    font-family: 'Oswald';
+    src: url('../fonts/static/Oswald-Light.ttf');
 }
 
 
 .fuente{
-     font-family: 'Oswald';
-     font-size: 30px;
-     
+    font-family: 'Oswald';
+    font-size: 30px;
+
 }
 
 .circle {
-   width: 60px;
-   height: 60px;
-   background-color: #f54153;
-   border-radius: 50%;
-   margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: #f54153;
+    border-radius: 50%;
+    margin-left: 10px;
 }
 
 .nivel{
@@ -23,10 +23,10 @@
 }
 
 .posicion{
-     font-family: 'Oswald';
-     font-size: 32px;
-     margin-top: 2px;
-     font-weight: bold;
+    font-family: 'Oswald';
+    font-size: 32px;
+    margin-top: 2px;
+    font-weight: bold;
 }
 
 footer{
@@ -44,14 +44,14 @@ footer{
 .nav-color {
     background-color: #2a435f;
     color: white;
-    
+
 }
 
 .pregunta{
 
     margin-top: 15px;
     margin-right: 15px;
-    
+
 
 }
 
@@ -73,3 +73,32 @@ footer{
 .h6, h6 {
     font-size: 0.99rem;
 }
+
+
+.madurez{    
+    background-color: #9c9c9c;
+
+}
+
+.card-footer, small{
+    color: whitesmoke;
+
+}
+
+.margen{
+    margin-left: 45px;
+}
+
+.btn-gris {
+    color: #fff;
+    background-color: #737373;
+    border-color: #fdf6f6;
+    margin-right: 35px;
+}
+
+.bg-c-yellow {
+    background: -webkit-gradient(linear, left top, right top, from(#fe9365), to(#feb798));
+    background: linear-gradient(to right, #fe9365, #feb798);
+}
+
+

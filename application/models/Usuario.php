@@ -5,15 +5,19 @@ class Usuario extends CI_Model {
     public $table = 'usuario';
 
     public function validar($email, $pass) {
+       $this->db->select("CONCAT((nombre),(' '),(ape_pat),(' '),(ape_mat)) as nombre, iduser");
         $this->db->where('email', $email);
         $this->db->where('password', $pass);
         $query = $this->db->get('usuario');
+        
+        //$fila = $query->row_array();
+       
+       //$fila["iduser"];
+       
+     
 
-
-        if ($query->num_rows() > 0) {
-            return true;
-        }
-        return false;
+        
+        return $query;
     }
 
     public function registro($data) {

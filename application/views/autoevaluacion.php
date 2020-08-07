@@ -11,9 +11,9 @@
     <body>
 
         <?php require_once 'component/navbar.php'; ?>
-        <div class="container">
+        <div class="container mt-5">
 
-            <div class="card" >
+            <div class="card" >                
                 <div class="card-body">
                     <ul class="list-group"id="controles">
                     </ul>
@@ -149,7 +149,8 @@
 
         <!--<?php require_once 'component/footer.php'; ?> -->
         <script src="<?php echo base_url(); ?>public/js/jquery-3.5.1.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" type="text/javascript"></script>    
+        <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" type="text/javascript"></script>  
+        <script src="<?php echo base_url(); ?>public/js/sistema/login.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/sistema/autoevaluacion.js" type="text/javascript"></script>
 
     </body>

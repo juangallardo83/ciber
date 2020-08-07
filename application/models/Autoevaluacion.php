@@ -31,8 +31,10 @@ class Autoevaluacion extends CI_Model {
                 control
                 INNER JOIN subcontrol ON subcontrol.idcontrol = control.id
                 INNER JOIN detallesubco ON detallesubco.idsubco = subcontrol.idsubco
+                WHERE detallesubco.iduser = '" . $this->session->userdata('user') ."'
                 GROUP BY control.nomcuest
                 ORDER BY id";
+         $this->session->userdata('user');
          
         $query = $this->db->query($sql);
         return $query->result();
@@ -50,7 +52,7 @@ class Autoevaluacion extends CI_Model {
                 FROM
                 subcontrol
                 INNER JOIN detallesubco ON detallesubco.idsubco = subcontrol.idsubco
-                where subcontrol.idcontrol = '.$id.'";
+                where subcontrol.idcontrol = '.$id.' and detallesubco.iduser = '" . $this->session->userdata('user') ."' ";
        
         
        $query = $this->db->query($sql);
