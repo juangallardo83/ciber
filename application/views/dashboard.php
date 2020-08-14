@@ -34,7 +34,7 @@
                         <div class="card widget-card-1">
                             <div class="card-block-small">
                                 <i class="feather icon-pie-chart bg-c-blue card1-icon"></i>
-                                <span class="text-c-blue f-w-600">En Ejecución</span>
+                                <span class="text-c-blue f-w-600">En Proceso</span>
                                 <h4 id="iniciados">0</h4>
                                 <div>
                                     <span class="f-left m-t-10 text-muted">
