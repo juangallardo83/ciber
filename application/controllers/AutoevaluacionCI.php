@@ -28,6 +28,22 @@ class AutoevaluacionCI extends CI_Controller {
         $controles = $this->Autoevaluacion->subcontrol($id);
         echo json_encode($controles);
     }
+    
+    public function subcontroltit() {
+        $this->load->Model('Autoevaluacion');
+        $id = $this->input->post('idcontrol');
+        $subcon= $this->Autoevaluacion->subcontroltit($id);
+        echo json_encode($subcon);
+    }
+    
+    public function controltit() {
+        $this->load->Model('Autoevaluacion');
+        $id = $this->input->post('idcontrol');
+        $control= $this->Autoevaluacion->controltit($id);
+        echo json_encode($control);
+    }
+    
+    
 
     public function detalle() {
         $this->load->Model('Detalle');

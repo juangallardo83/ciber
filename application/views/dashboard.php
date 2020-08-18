@@ -18,23 +18,23 @@
             <div class="row m-r-50 m-l-50">
                 <div class="col-3">
                     <div class="col-md-10">
-                       
+
                         <div class="card user-card2">
                             <div class="card-block text-center">
                                 <h6 class="">Progreso Controles</h6>
                                 <div class="estilo_div" id="test-circle"></div>
-                               
-                                
-                                
+
+
+
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="card widget-card-1">
                             <div class="card-block-small">
                                 <i class="feather icon-pie-chart bg-c-blue card1-icon"></i>
-                                <span class="text-c-blue f-w-600">En Proceso</span>
+                                <span class="text-c-blue f-w-600">En Ejecución</span>
                                 <h4 id="iniciados">0</h4>
                                 <div>
                                     <span class="f-left m-t-10 text-muted">
@@ -82,7 +82,8 @@
                 </div>
 
                 <div class="col-9">
-                    <div id="container" class="m-r-50" style="height: 700px;"  ></div>
+                    <div id="container" class="m-r-50" style="height: 600px;"  ></div>                   
+                    <div id="capa" class="alert alert-primary m-r-50" role="alert" ></div>                    
                     <div id="container1" class="m-r-50"></div>
                 </div>
 
@@ -92,7 +93,29 @@
 
         </div>
 
+        <div class="modal fade" id="modalsubcontrol" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 650px;;margin-top: 150px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="ModalTitulo">  </h6>
+                        <input type="hidden" id="idcontrol" value="" >
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="itemsub">
+                        <div id="c3"></div>
+                         <div id="capasub" class="alert alert-primary " role="alert" ></div>    
+                        
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
