@@ -71,15 +71,34 @@ class Autoevaluacion extends CI_Model {
 
         return $query->result();
     }
+    
+    public function subcontroldesc($id) {
+
+
+        $sql = "SELECT               
+                subcontrol.titulo                
+                FROM
+                subcontrol
+                INNER JOIN detallesubco ON detallesubco.idsubco = subcontrol.idsubco
+                where subcontrol.idsubco = '.$id.' and detallesubco.iduser = '" . $this->session->userdata('user') . "' ";
+
+
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
 
     public function subcontroltit($id) {
 
 
         $sql = "SELECT
+                control.nomcuest,
+                subcontrol.titulo,
                 subcontrol.idsubco,                              
                 detallesubco.idestado
                 FROM
                 subcontrol
+                INNER JOIN control ON control.id = subcontrol.idcontrol
                 INNER JOIN detallesubco ON detallesubco.idsubco = subcontrol.idsubco
                 where subcontrol.idcontrol = '.$id.' and detallesubco.iduser = '" . $this->session->userdata('user') . "' ";
 

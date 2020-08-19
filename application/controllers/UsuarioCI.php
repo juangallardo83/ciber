@@ -44,10 +44,11 @@ class UsuarioCI extends CI_Controller {
         $data = array(
             'nombre' => $this->input->post('nombre'),
             'ape_pat' => $this->input->post('paterno'),
-            'ape_mat' => $this->input->post('materno'),
+            'nom_emp' => $this->input->post('nom_emp'),
             'email' => $this->input->post('email'),
             'password' => $this->input->post('password'),
             'idempresa' => $this->input->post('idempresa'),
+            'region' => $this->input->post('region'),
         );
 
 

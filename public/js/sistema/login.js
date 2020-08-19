@@ -30,13 +30,17 @@ $('#btn_registro').click(function () {
     var datos = {
         "nombre": $('#nombre').val(),
         "paterno": $('#paterno').val(),
-        "materno": $('#materno').val(),
+        "nom_emp": $('#nom_emp').val(),
         "email": $('#mail').val(),
         "password": $('#pass').val(),
-        "idempresa": $('#empresa').val()
+        "idempresa": $('#empresa').val(),
+        "region": $('#region').val()
     };
     
-    if(datos.nombre === "" || datos.paterno === ""  || datos.materno === "" || datos.email === "" || datos.password === "" || datos.idempresa === "" ){
+    if(datos.nom_emp === ""){
+        datos.nom_emp = 'no registra';
+    }
+    if(datos.nombre === "" || datos.paterno === "" || datos.email === "" || datos.password === "" || datos.idempresa === "" || datos.region === ""){
         
     }
     else{

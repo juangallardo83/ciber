@@ -65,15 +65,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-4 col-form-label">Apellido Paterno</label>
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Apellido</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="paterno" required>                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-4 col-form-label">Apellido Materno</label>
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Nombre Empresa (Opcional)</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="materno" required>                                        
+                                        <input type="text" class="form-control" id="nom_emp">                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -89,13 +89,42 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-4 col-form-label">Empresa</label>
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Nivel Empresa</label>
                                     <div class="col-sm-8">
                                         <select name="empresa" class="form-control" id="empresa" required="">
+                                            <option value="" selected>Seleccionar</option>
                                             <option value="1">Micro Empresa</option>
                                             <option value="2">Pequeña Empresa</option>
                                             <option value="3">Mediana Empresa</option>
 
+                                        </select>
+                                    </div>
+                                </div>
+                              <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-4 col-form-label">Región Empresa (Opcional)</label>
+                                    <div class="col-sm-8">
+                                        <select name="region" class="form-control" id="region">
+                                            <option value="no registra" selected>Seleccionar</option>
+                                            <option value="1">I Región de Tarapacá</option>
+                                            <option value="2">II Región de Antofagasta</option>
+                                            <option value="3">III Región de Atacama</option>
+                                            <option value="4">IV Región de Coquimbo</option>
+                                            <option value="5">V Región de Valparaíso</option>
+                                            <option value="6">VI Región del Libertador General Bernardo O’Higgins</option>
+                                            <option value="7">VII Región del Maule</option>
+                                            <option value="8">VIII Región del Biobío</option>
+                                            <option value="9">IX Región de La Araucanía</option>
+                                            <option value="10">X Región de Los Lagos</option>
+                                            <option value="11">XI Región Aysén del General Carlos Ibáñez del Campo</option>
+                                            <option value="12">XII Región de Magallanes y Antártica Chilena</option>
+                                            <option value="13">Región Metropolitana de Santiago</option>
+                                            <option value="14">XIV Región de Los Ríos</option>
+                                            <option value="15">XV Región de Arica y Parinacota</option>
+                                            <option value="16">XVI Región de Ñuble</option>
+                                                                         
+                                            
+                                                                                  
+                                                                                   
                                         </select>
                                     </div>
                                 </div>

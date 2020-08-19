@@ -22,6 +22,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="AutoevaluacionCI"> <i class="fa fa-tasks" aria-hidden="true"></i> Controles</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="AutoevaluacionCI" data-toggle="modal" data-target="#modalmanual"> <i class="fa fa-book" aria-hidden="true"></i> Manual</a>
+                </li>  
                 </li>                
 
             </ul>

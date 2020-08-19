@@ -239,10 +239,36 @@ function desplegar(id) {
         cache: false,
         url: "http://localhost/ciber/index.php/AutoevaluacionCI/subcontroltit",
         success: function (data) {
-            //console.log(data);
+            console.log(data);
             //$("#capa").html("Descripción: " + data[0]);
             subcontroles(data);
+            $('#ModalTitulo').html(data[0].nomcuest);
             $('#modalsubcontrol').modal("show");
+        },
+        error: function (e) {
+            console.log("error.....");
+            console.log(e);
+        }
+    });
+}
+
+
+
+function subTitulo(id) {
+
+
+    var datos = {
+        "idsubco": id
+    };
+    $.ajax({
+        data: datos,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        url: "http://localhost/ciber/index.php/AutoevaluacionCI/subtitulo",
+        success: function (data) {
+            console.log(data);
+           
         },
         error: function (e) {
             console.log("error.....");
@@ -351,7 +377,8 @@ function subcontroles(datos) {
 
     Highcharts.chart('c3', {
         chart: {
-            type: 'bar'
+            type: 'column',
+            inverted: true
         },
         credits: {
             enabled: true,
@@ -375,29 +402,29 @@ function subcontroles(datos) {
             enabled: false
         },
         plotOptions: {
-            plotOptions: {
-                series: {
-                    stickyTracking: false,
-                    cursor: 'pointer',
-                    connectNulls: true,
-                    point: {
-                        events: {                            
-                            mouseOver: function (event) {
-                                $('#capasub').css("display", "");
-                                //tituloControl(this.x + 1);
-                                $('#capasub').html("ggg");
-                                //desplegarOB(this.category, this.y);
-                                // $capa1.html('Moused over ' + this.category)
-                                //.css('color', 'green');
-                            },
-                            mouseOut: function (event) {
-                                $('#capasub').css("display", "none");
-                                $('#capasub').html("");
-                            }
+
+            series: {
+                stickyTracking: false,
+                cursor: 'pointer',
+                connectNulls: true,
+                point: {
+                    events: {
+                        mouseOver: function (event) {
+                            $('#capasub').css("display", "");
+                            subTitulo(this.x + 1);
+                            $('#capasub').html(this.x + 1);
+                            //desplegarOB(this.category, this.y);
+                            // $capa1.html('Moused over ' + this.category)
+                            //.css('color', 'green');
+                        },
+                        mouseOut: function (event) {
+                            $('#capasub').css("display", "none");
+                            $('#capasub').html("");
                         }
                     }
                 }
             }
+
         },
         series: [{
                 colors: ['#f0f', '#ff0', '#0ff'],
