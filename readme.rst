@@ -15,7 +15,7 @@ Los ciberataques son eventos maliciosos y sofisticados que intentan explotar los
 Cambios y entorno web
 **************************
 Los cambios del proyecto se están registrando a través de Github	: https://github.com/juangallardo83/ciber 
-La visualización del entorno de produción se está trabajando AWS 
+La visualización del entorno de produción se está trabajando en servidores internos de la Universidad
 
 *******************
 Requisitos 
@@ -39,5 +39,5 @@ Bootstrap: https://getbootstrap.com/docs/4.5/getting-started/introduction/
 Recursos
 *********
 
-Guía de operación (en desarrollo - aún no disponible)
+Manual de usaurio con instructivo de usabilidad (Carpeta PDF)
 
