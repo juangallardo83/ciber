@@ -12,6 +12,13 @@ class Detalle extends CI_Model {
        
     }
     
+    public function AgregaArchivo($data,$id) { 
+        $this->db->where('idsubco', $id);
+        $this->db->where('iduser', $this->session->userdata('user'));
+        $query = $this->db->update('detallesubco',$data);
+        return $query;
+       
+    }
     public function nivelMadurez() { 
         $sql= "SELECT
                 ROUND((sum(detallesubco.idestado) * 100) / (count(*) * 5)) as madurez

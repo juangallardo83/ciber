@@ -73,13 +73,49 @@ class AutoevaluacionCI extends CI_Controller {
         echo json_encode($madurez);
     }
     
-    public function validaEvaluacion(){
-         $this->load->Model('Detalle');  
+    public function validaEvaluacion() {
+        $this->load->Model('Detalle');
         $id = $this->input->post('idsubco');
-        
+
+        $this->session->set_userdata('subcon', $id);
         $resultado = $this->Detalle->Evaluacion($id);
         echo json_encode($resultado);
     }
-            
+
+
+	
+    function do_upload() {
+        // File upload configuration
+        $config['upload_path'] = 'upload';
+        $config['allowed_types'] = 'pdf';
+        $config['max_size'] = '10240';
+        $config['overwrite'] = TRUE;
+        $config['remove_spaces'] = TRUE;
+
+        $id = $this->session->userdata('subcon');
+        $nomarchivo = "Evidencia-" . $this->session->userdata('user') . "-" . $id;
+
+
+        $config['file_name'] = $nomarchivo;      
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        $this->upload->do_upload('userfile');
+        
+        $file = $this->upload->data();
+        
+        
+         $data = array(
+            'evidencia' => $file['file_name']
+        );
+        $this->load->Model('Detalle');
+        $this->Detalle->AgregaArchivo($data, $id);
+
+        echo json_encode($file['file_name']);
+    }
 
 }
+        
+    
+

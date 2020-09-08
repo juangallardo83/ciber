@@ -128,7 +128,7 @@
                         </button>
                     </div>
                     <div class="modal-body" id="itemsub">
-                     <   <iframe src="<?php echo base_url(); ?>public/pdf/manual.pdf"                              
+                        <iframe src="<?php echo base_url(); ?>public/pdf/manual.pdf"                              
                                 style="width:830px; height:600px;" frameborder="0"></iframe>
 
                     </div>

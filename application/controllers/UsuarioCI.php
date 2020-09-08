@@ -70,3 +70,4 @@ class UsuarioCI extends CI_Controller {
     }
 
 }
+

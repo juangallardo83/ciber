@@ -8,9 +8,8 @@
         <link href="<?php echo base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-    
-        
-<nav class="navbar nav-color">
+	
+	<nav class="navbar nav-color">
     <span class="navbar-brand mb-0 h1 fuente">
         <img src="<?php echo base_url(); ?>public/images/logo.png" width="48px" >    CIBERMADUREZ
     </span>
@@ -29,7 +28,7 @@
         </div>
         
         
-                <div class="modal fade" id="modalmanual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal fade" id="modalmanual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document" style="max-width: 850px;;margin-top: 150px;">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -62,6 +61,7 @@
     
  
 </nav>
+
         <!--<?php require_once 'component/navbar.php'; ?>-->
 
         <div class="container">
@@ -75,14 +75,14 @@
                                     <h3 class="text-center text-info">Login</h3>
                                     <div class="form-group">
                                         <label for="username" class="text-info">Email:</label><br>
-                                        <input type="text" name="email" id="email" class="form-control">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="usuario@mail.com">
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="text-info">Password:</label><br>
-                                        <input type="password" name="password" id="password" class="form-control">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="********">
                                     </div>
                                     <div class="form-group">
-                                        <label for="remember-me" class="text-info"><span>Recordar</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                        
                                         <input type="button" name="btn_login" id="btn_login" class="btn btn-info btn-md btn-block" value="Acceder">
                                     </div>
                                     <div id="register-link" class="text-right">
@@ -132,7 +132,7 @@
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="mail" required>                                        
+                                        <input type="email" class="form-control" id="mail" required placeholder="Ej: user@mail.cl" >                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
