@@ -1,17 +1,79 @@
 $(document).ready(function () {
 
+
+    //madurez();
+    Auditorias();
     controles();
-    madurez();
 });
 
 
-
-
-function auditor(obs){
+function auditor(obs) {
     $('#obs_auditor').val("");
     $('#obs_auditor').attr('disabled', true);
     $('#obs_auditor').val(obs);
     $('#modalAuditor').modal('show');
+}
+
+
+
+function Auditorias() {
+
+
+
+    /*var datos = {        
+     "idsubco" : idsubControl,
+     "idestado" : opcion,
+     "comentario" : comentario
+     };*/
+
+
+    $.ajax({
+        //data: datos,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        url: "http://localhost/ciber/index.php/Auditor/verificaAsignacion",
+        success: function (data) {
+            
+            $('#empresa').text(data[0].nom_emp);
+            $('#nivel').text(data[0].nomnivel);
+            $('#user').text(data[0].nombre + " " + data[0].ape_pat);
+            $('#email').text(data[0].email);
+            $('#fecha').text(convertDateFormat(data[0].fecha));
+        }
+    });
+    return false;
+
+
+}
+
+
+function addComentarioAuditor() {
+
+
+
+    var datos = {        
+     "idsubco" : idsubControl,
+     "iduser" : opcion,
+     "iddetalle" : opcion,
+     "comentario" : obsauditor
+     };
+
+
+    $.ajax({
+        data: datos,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        url: "http://localhost/ciber/index.php/Auditor/insertComentario",
+        success: function (data) {
+            
+           
+        }
+    });
+    return false;
+
+
 }
 
 function datos() {
@@ -120,10 +182,9 @@ function subcontrol($id, $titulo) {
                 }
 
                 if (value.obsauditor !== null) {
-                    check_auditor = "<a href='#' onclick='auditor(\"" + value.obsauditor + "\")'><small class='badge badge-pill badge-warning' style='font-size:12px;margin-left: 60%;' ><i class='fa fa-info-circle'></i> Control Auditado</small></a>";                    
-                }
-                else{
-                   check_auditor = ""; 
+                    check_auditor = "<a href='#' onclick='auditor(\"" + value.obsauditor + "\")'><small class='badge badge-pill badge-warning' style='font-size:12px;margin-left: 60%;' ><i class='fa fa-info-circle'></i> Control Auditado</small></a>";
+                } else {
+                    check_auditor = "";
                 }
 
 
@@ -181,24 +242,54 @@ function evaluacion() {
         success: function (data) {
             console.log("salida");
             console.log(data);
+            
+            
+            
+            
+
             $('#evidenciafile').text("");
-            $('#comentario').text("");
+            $('#observacion').text("No Registra");
+            
+            $("#cardComentario").addClass( "text-center" );
+            $("#img_comentario").css("margin-left","35%");
+            $("#addtexto").css("display", "none");
+            $("#img_comentario").css("display", "block");
+            $("#observacion").css("display", "block");
+
+
+            $('#file_evidencia').removeAttr("href");
+            $('#texto_evidencia').text("Sin Adjunto");
+            $("#img_evidencia").attr("src", "../public/images/delete_file.png");
+
+
+            $("#img_estado").attr("src", "../public/images/no_check.png");
+            $('#estado').text("No Registra");
             $("#lst").css("display", "none");
 
 
             if (data[0].idestado !== null) {
-                $('#opcion' + data[0].idestado).prop('checked', true);
+                $("#img_estado").attr("src", "../public/images/chech.png");
+                $('#estado').text(data[0].nomestado);
             }
 
+
+
             if (data[0].evidencia !== null) {
-                $('#linkfile').attr('href', '../upload/' + data[0].evidencia);
-                $('#evidenciafile').text(data[0].evidencia);
+                $('#file_evidencia').attr('href', '../upload/' + data[0].evidencia);
+                $('#file_evidencia').attr('href');
+                $("#img_evidencia").attr("src", "../public/images/auditar.png");
+                $('#texto_evidencia').text("Ver Adjunto");
                 $("#lst").css("display", "block");
             }
 
             if (data[0].comentario !== null) {
-                $('#comentario').text(data[0].comentario);
-                $("#lst").css("display", "block");
+                
+                $(".card").css("height","94%");
+                $("#addtexto").css("display", "block");
+                $("#cardComentario").removeClass( "text-center" );                
+                $('#addtexto').text(data[0].comentario);
+                $("#img_comentario").css("display", "none");
+                $("#observacion").css("display", "none");
             }
 
 
@@ -292,6 +383,12 @@ function nivelMadurez() {
     return false;
 
 
+}
+
+
+function convertDateFormat(string) {
+	var info = string.split('-');
+	return info[2] + '-' + info[1] + '-' + info[0];
 }
 
 

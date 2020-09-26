@@ -43,5 +43,15 @@ class Usuario extends CI_Model {
 
         return $query;
     }
+    
+    
+    public function validarUser($email) {          
+       
+       
+       $sql = "SELECT * FROM usuario where usuario.email = '$email'";
+       $query =  $this->db->query($sql); 
+
+        return $query;
+    }
 
 }

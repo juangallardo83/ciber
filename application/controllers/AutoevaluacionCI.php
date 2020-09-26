@@ -4,10 +4,12 @@ class AutoevaluacionCI extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+         $this->load->helper('url');
+        $this->load->library('session');
     }
 
     public function index() {
-        $this->load->view('autoevaluacion');
+               $this->load->view('autoevaluacion');
     }
 
     public function salida() {
@@ -58,7 +60,8 @@ class AutoevaluacionCI extends CI_Controller {
         $idsubco = $this->input->post('idsubco');
         
         $data = array(                    
-            'idestado' => $this->input->post('idestado')
+            'idestado' => $this->input->post('idestado'),
+            'comentario' => $this->input->post('comentario')
         );
 
        
@@ -73,6 +76,12 @@ class AutoevaluacionCI extends CI_Controller {
         echo json_encode($madurez);
     }
     
+    public function asignaAuditor() {
+        $this->load->Model('Auditores');  
+        $auditor = $this->Auditores->Auditoria($this->session->userdata('user'));
+        echo json_encode($auditor);
+    }
+    
     public function validaEvaluacion() {
         $this->load->Model('Detalle');
         $id = $this->input->post('idsubco');
@@ -84,7 +93,7 @@ class AutoevaluacionCI extends CI_Controller {
 
 
 	
-    function do_upload() {
+     function do_upload() {
         // File upload configuration
         $config['upload_path'] = 'upload';
         $config['allowed_types'] = 'pdf';
@@ -96,23 +105,23 @@ class AutoevaluacionCI extends CI_Controller {
         $nomarchivo = "Evidencia-" . $this->session->userdata('user') . "-" . $id;
 
 
-        $config['file_name'] = $nomarchivo;      
+        $config['file_name'] = $nomarchivo;
 
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
-        $this->upload->do_upload('userfile');
+        if (!$this->upload->do_upload('userfile')) {                   
+            echo json_encode(false);
+        } else {
+            $file = $this->upload->data();
+            $data = array(
+                'evidencia' => $file['file_name']
+            );
+            $this->load->Model('Detalle');
+            $this->Detalle->AgregaArchivo($data, $id);
+            echo json_encode($file['file_name']);
+        }
         
-        $file = $this->upload->data();
-        
-        
-         $data = array(
-            'evidencia' => $file['file_name']
-        );
-        $this->load->Model('Detalle');
-        $this->Detalle->AgregaArchivo($data, $id);
-
-        echo json_encode($file['file_name']);
     }
 
 }

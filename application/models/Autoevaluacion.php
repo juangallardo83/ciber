@@ -34,7 +34,7 @@ class Autoevaluacion extends CI_Model {
                 WHERE detallesubco.iduser = '" . $this->session->userdata('user') . "'
                 GROUP BY control.nomcuest
                 ORDER BY id";
-        $this->session->userdata('user');
+        
 
         $query = $this->db->query($sql);
         return $query->result();
@@ -60,6 +60,7 @@ class Autoevaluacion extends CI_Model {
                 subcontrol.idsubco,
                 subcontrol.titulo,
                 subcontrol.descripcion,
+                detallesubco.obsauditor,
                 detallesubco.idestado
                 FROM
                 subcontrol

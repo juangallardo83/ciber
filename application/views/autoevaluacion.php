@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,11 +6,17 @@
         <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
         <link href="<?php echo base_url(); ?>public/iCheck/icheck-bootstrap.min.css" rel="stylesheet" type="text/css"/>   
+        <link href="<?php echo base_url(); ?>public/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?php
+        if (empty($this->session->userdata('user'))) {
+            return redirect('/', 'refresh');
+        }
+        ?>
 
-        <?php require_once 'component/navbar.php'; ?>
+<?php require_once 'component/navbar.php'; ?>
         <div class="container mt-5">
 
             <div class="card" >                
@@ -43,6 +48,30 @@
                     </div>
                     <div class="modal-body" id="itemsub">
 
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="modal fade" id="modalAuditor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 600px;;margin-top: 200px;">
+                <div class="modal-content">
+                    <div class="modal-header-auditor">
+                        <h6 class="modal-title" id="ModalTitulo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Observaciones del Auditor  </h6>
+                        <input type="hidden" id="idcontrol" value="" >
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" >
+                        <textarea id="obs_auditor"style="margin-top: 0px;margin-bottom: 0px;height: 120px;width: 100%;"></textarea>
 
                     </div>
                     <div class="modal-footer">
@@ -135,14 +164,15 @@
                                 </div>
                             </div>
 
-							<div class="card border-primary  mb-3" >
+                            <div class="card border-primary  mb-3" >
                                 <div class="card-header">3. Agregar Evidencia (archivo pdf)</div>
                                 <div class="card-body text-primary">
 
                                     <ul class="list-group" id="lst">      
-                                         <a id="linkfile" href="" target="_blank"><li id="evidenciafile" class="list-group-item d-flex justify-content-between align-items-center">
-                                                                                       
-                                             </li></a>
+                                        <a id="linkfile" href="" target="_blank"><li id="evidenciafile" class="list-group-item d-flex justify-content-between align-items-center">
+
+
+                                            </li></a>
 
                                     </ul>
                                     <br/>
@@ -164,37 +194,15 @@
             </div>
         </div>
 
-    <div class="modal fade" id="modalmanual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document" style="max-width: 850px;;margin-top: 150px;">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="Modalmanual">Manual de Usuario  </h6>
 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="itemsub">
-                        <iframe src="<?php echo base_url(); ?>public/pdf/manual.pdf"                              
-                                style="width:830px; height:600px;" frameborder="0"></iframe>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-                    </div>
-                </div>
-            </div>
-    </div>
-        
-        
 
         <!--<?php require_once 'component/footer.php'; ?> -->
         <script src="<?php echo base_url(); ?>public/js/jquery-3.5.1.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" type="text/javascript"></script>  
         <script src="<?php echo base_url(); ?>public/js/sistema/login.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/sistema/autoevaluacion.js" type="text/javascript"></script>
-		<script src="<?php echo base_url(); ?>public/js/sistema/upload.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>public/js/sweetalert2.all.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>public/js/sistema/upload.js" type="text/javascript"></script>
 
     </body>
 </html>

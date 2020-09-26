@@ -1,5 +1,6 @@
 $(document).ready(function () {
     Avance();
+    asignacionAuditor();
 });
 function nivelMadurez() {
     $.ajax({
@@ -268,7 +269,7 @@ function subTitulo(id) {
         url: "http://localhost/ciber/index.php/AutoevaluacionCI/subtitulo",
         success: function (data) {
             console.log(data);
-           
+
         },
         error: function (e) {
             console.log("error.....");
@@ -438,6 +439,43 @@ function subcontroles(datos) {
                 }
 
             }]
+    });
+}
+
+
+
+
+function asignacionAuditor() {
+
+    $.ajax({
+        //data: datos,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        url: "http://localhost/ciber/index.php/AutoevaluacionCI/asignaAuditor",
+        success: function (data) {
+            console.log(data);
+
+
+            if (data.length > 0) {
+                $('#texto').text('AUDITOR ASIGNADO');
+                $('#nombreAuditor').text(data[0].nomcompleto);
+                $('#emailAuditor').text(data[0].email);
+                $('#fecha').text(data[0].fecha);
+                $('#datos_auditor').css('display', 'block');
+            } else {
+                $('#datos_auditor').css('display', 'none');
+                $('#texto').text('SIN AUDITOR ASIGNADO');
+
+            }
+
+
+
+
+        },
+        error: function (e) {
+            console.log(e);
+        }
     });
 }
 

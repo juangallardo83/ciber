@@ -16,22 +16,50 @@ class UsuarioCI extends CI_Controller {
         $salida = $this->Usuario->validar($email, $pass);
         //$fila = $salida->row_array();
 
-       $nom = "";
+        $nom = "";
         if ($salida->num_rows() > 0) {
             $fila = $salida->row_array();
-            
-            $this->session->set_userdata('user',$fila["iduser"]);           
-            $this->session->set_userdata('nomuser',$fila["nombre"]);          
-            
-        }
-        else{
-            $salida = false;
+
+            $this->session->set_userdata('user', $fila["iduser"]);
+            $this->session->set_userdata('nomuser', $fila["nombre"]);
+        } else {
+            return false;
         }
 
-       
 
 
-      
+
+
+
+
+
+        echo json_encode($salida);
+    }
+
+    public function login_auditor() {
+        $this->load->Model('Auditores');
+        $email = $this->input->post('email');
+        $pass = $this->input->post('password');
+
+
+
+        $salida = $this->Auditores->validar($email, $pass);
+        //$fila = $salida->row_array();
+
+
+        if ($salida->num_rows() > 0) {
+            $fila = $salida->row_array();
+
+            $this->session->set_userdata('idauditor', $fila["idauditor"]);
+            $this->session->set_userdata('nomauditor', $fila["nomcompleto"]);
+        } else {
+            return false;
+        }
+
+
+
+
+
 
 
 
@@ -51,23 +79,20 @@ class UsuarioCI extends CI_Controller {
             'region' => $this->input->post('region'),
         );
 
-
-
-        $salida = $this->Usuario->registro($data);
+        if ($this->Usuario->validarUser($data["email"])) {
+            echo json_encode("Usuario Existente..");
+        } else {
+            $salida = $this->Usuario->registro($data);
+        }
         echo json_encode($salida);
-    }
-    
-    
-    public function logout(){
         
+    }
+
+    public function logout() {
+
         $this->session->unset_userdata('user');
         $this->session->unset_userdata('nomuser');
-        $this->session->sess_destroy();        
+        $this->session->sess_destroy();
         return redirect('/', 'refresh');
-    
-        
-        
     }
-
 }
-

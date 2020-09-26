@@ -14,17 +14,30 @@ $("#subir_archivo").click(function () {
         cache: false,
         contentType: false,
         success: function (data) {
-            var archivo = data.replace(/[ '"]+/g,'');
+
             $('#userfile').val('');
-            
-            if(archivo !== null){
-                $('#linkfile').attr('href','../upload/'+archivo);
-                $('#evidenciafile').text(archivo);
-                $("#lst").css("display", "block");
+
+
+            if (data !== 'false') {
+                console.log(" en if = " + data);
+                var archivo = data.replace(/[ '"]+/g, '');
+                if (archivo !== null) {
+                    $('#linkfile').attr('href', '../upload/' + archivo);
+                    $('#evidenciafile').text(archivo);
+                    $("#lst").css("display", "block");
+                }
+            } else {
+                Swal.fire({
+                    type: 'warning',
+                    title: 'Archivo No Soportado',
+                    text: 'Solo se pueden Guardar archivos PDF',
+                });                
+
             }
-            
+
+
         }
-    
+
     });
 
 

@@ -13,6 +13,11 @@
 
     </head>
     <body>
+        <?php
+        if (empty($this->session->userdata('user'))) {
+            return redirect('/', 'refresh');
+        }
+        ?>
         <?php require_once 'component/navbar.php'; ?>
         <div class="container-fluid m-t-25">
             <div class="row m-r-50 m-l-50">
@@ -82,6 +87,22 @@
                 </div>
 
                 <div class="col-9">
+                    <div class="m-r-50">
+                        <div class="card bg-c-pink text-white widget-visitor-card">
+                            <div class="card-block-small text-center">
+                                <h6 id="texto">AUDITOR ASIGNADO</h6><br>
+                                <div id="datos_auditor">
+                                    <small >Nombre: <label id="nombreAuditor"></label></small>
+                                    <small >Email : <label id="emailAuditor"></label></small>
+                                    <small >Fecha Asignación : <label id="fecha"></label></small> 
+                                </div>
+
+                                <i class="feather icon-user"></i>
+                            </div>
+                        </div>
+
+
+                    </div>
                     <div id="container" class="m-r-50" style="height: 600px;"  ></div>                   
                     <div id="capa" class="alert alert-primary m-r-50" role="alert" ></div>                    
                     <div id="container1" class="m-r-50"></div>

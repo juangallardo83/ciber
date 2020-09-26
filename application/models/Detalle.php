@@ -32,8 +32,10 @@ class Detalle extends CI_Model {
     }
     
     public function Evaluacion($id){
+        $this->db->select('*');
         $this->db->where('idsubco', $id);  
         $this->db->where('iduser', $this->session->userdata('user'));
+        $this->db->join('estado', 'estado.idestado = detallesubco.idestado');
         $query = $this->db->get('detallesubco');
         
         
