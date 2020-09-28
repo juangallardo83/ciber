@@ -30,7 +30,7 @@ $("#subir_archivo").click(function () {
                 Swal.fire({
                     type: 'warning',
                     title: 'Archivo No Soportado',
-                    text: 'Solo se pueden Guardar archivos PDF',
+                    text: 'Solo se pueden Guardar archivos PDF'
                 });                
 
             }

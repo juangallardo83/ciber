@@ -29,7 +29,7 @@ class Auditor extends CI_Controller {
 
         $this->load->Model('Auditores');
 
-        $datos = $this->Auditores->asignaAuditor(1);
+        $datos = $this->Auditores->asignaAuditor($this->session->userdata('idauditor'));
 
 
         if ($datos) {
@@ -44,7 +44,7 @@ class Auditor extends CI_Controller {
 
             echo json_encode($datos);
         } else {
-            echo json_encode("Sin Asignación de Auditorias.");
+            echo json_encode(false);
             $this->session->set_userdata('auditor', false);
         }
     }

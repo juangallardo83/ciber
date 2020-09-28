@@ -23,9 +23,10 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
+                            <li> <a href="../Welcome"   id="btn_logout" class="btn btn-gris btn-sm pull-right"><i class="fa fa-sign-out" aria-hidden="true"></i>   Salir</a></li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="Welcome" data-toggle="modal" data-target="#modalmanual"> <i class="fa fa-book" aria-hidden="true"></i> Manual de Usuario</a>
+                                <a class="btn btn-gris btn-sm pull-right"  data-toggle="modal" data-target="#modalmanual"> <i class="fa fa-book" aria-hidden="true"></i> Manual de Usuario</a>
                             </li>  
 
 
@@ -67,10 +68,11 @@
         </nav>
 
         <div class="container">
-           <div class="fuente h1 text-center" style="margin-top: 25px;">Empresa Auditar</div>
-            <div class="row  justify-content-center align-items-center" >                
+           <div id="texto2" class="fuente h1 text-center" style="margin-top: 25px;"></div>
+            <div id="datos_user" class="row  justify-content-center align-items-center" >
+                
                
-                <div class="card mb-3 border-success " style="max-width: 840px;margin-top: 100px;">
+                <div  class="card mb-3 border-success " style="max-width: 840px;margin-top: 100px;">
                     <div class="row no-gutters">
                         <div class="col-md-2" style=" margin-top:15px;padding: 10px;">
                             <img src="<?php echo base_url(); ?>public/images/auditar.png" width="80px" class="card-img" alt="...">
@@ -87,7 +89,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-success">
-                        <a href="revision" class="btn btn-success btn-block">Acceder</a>
+                        <a href="revision" id="revision" class="btn btn-success btn-block">Acceder</a>
                     </div>
                 </div>
             </div>

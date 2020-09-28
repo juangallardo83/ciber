@@ -79,12 +79,12 @@ class UsuarioCI extends CI_Controller {
             'region' => $this->input->post('region'),
         );
 
-        if ($this->Usuario->validarUser($data["email"])) {
-            echo json_encode("Usuario Existente..");
-        } else {
+     
+        
+           
             $salida = $this->Usuario->registro($data);
-        }
-        echo json_encode($salida);
+            
+            echo json_encode($salida);
         
     }
 
@@ -95,4 +95,5 @@ class UsuarioCI extends CI_Controller {
         $this->session->sess_destroy();
         return redirect('/', 'refresh');
     }
+
 }

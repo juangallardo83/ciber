@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+   
 
     //madurez();
     Auditorias();
@@ -34,12 +34,23 @@ function Auditorias() {
         cache: false,
         url: "http://localhost/ciber/index.php/Auditor/verificaAsignacion",
         success: function (data) {
-            
-            $('#empresa').text(data[0].nom_emp);
-            $('#nivel').text(data[0].nomnivel);
-            $('#user').text(data[0].nombre + " " + data[0].ape_pat);
-            $('#email').text(data[0].email);
-            $('#fecha').text(convertDateFormat(data[0].fecha));
+
+            if (data)
+            {
+                $('#texto2').text('Empresa a Auditar');
+                $('#revision').css("display", "block");
+                $('#empresa').text(data[0].nom_emp);
+                $('#nivel').text(data[0].nomnivel);
+                $('#user').text(data[0].nombre + " " + data[0].ape_pat);
+                $('#email').text(data[0].email);
+                $('#fecha').text(convertDateFormat(data[0].fecha));
+            } 
+            else {
+                $('#texto2').text('No registra empresa para Auditar');
+                $('#revision').css("display", "none");
+                
+
+            }
         }
     });
     return false;
@@ -52,12 +63,12 @@ function addComentarioAuditor() {
 
 
 
-    var datos = {        
-     "idsubco" : idsubControl,
-     "iduser" : opcion,
-     "iddetalle" : opcion,
-     "comentario" : obsauditor
-     };
+    var datos = {
+        "idsubco": idsubControl,
+        "iduser": opcion,
+        "iddetalle": opcion,
+        "comentario": obsauditor
+    };
 
 
     $.ajax({
@@ -67,8 +78,8 @@ function addComentarioAuditor() {
         cache: false,
         url: "http://localhost/ciber/index.php/Auditor/insertComentario",
         success: function (data) {
-            
-           
+
+
         }
     });
     return false;
@@ -157,7 +168,7 @@ function muestra(item) {
 }
 
 function subcontrol($id, $titulo) {
-
+   
     var datos = {
         "idcontrol": $id
     };
@@ -168,15 +179,16 @@ function subcontrol($id, $titulo) {
         cache: false,
         url: "http://localhost/ciber/index.php/AutoevaluacionCI/subcontrol",
         success: function (data) {
-
-            console.log(data);
-            $('#itemsub').html("");
+            
+            $('#detallesub').html("");
             $('#ModalTitulo').html("<i class='fa fa-list-alt' ></i>     " + $titulo);
-            $('#idcontrol').val(datos.idcontrol)
+            $('#idcontrol').val(datos.idcontrol);
             $.each(data, function (key, value) {
-                var item = (key + 1);
-                var check_auditor = "";
-                var check = "chech.png";
+                
+               
+              var item = (key + 1);
+              var check_auditor = "";
+               var check = "chech.png";
                 if (value.idestado === null) {
                     check = "alarma.png";
                 }
@@ -189,7 +201,7 @@ function subcontrol($id, $titulo) {
 
 
 
-                $('#itemsub').append(
+                $('#detallesub').append(
                         "<div class='media text-muted pt-3'>"
                         + "<title>Placeholder</title>"
                         + "<span class='badge badge-primary badge-pill' style='margin-left:10px;'>" + item + "</span>"
@@ -242,16 +254,16 @@ function evaluacion() {
         success: function (data) {
             console.log("salida");
             console.log(data);
-            
-            
-            
-            
+
+
+
+
 
             $('#evidenciafile').text("");
             $('#observacion').text("No Registra");
-            
-            $("#cardComentario").addClass( "text-center" );
-            $("#img_comentario").css("margin-left","35%");
+
+            $("#cardComentario").addClass("text-center");
+            $("#img_comentario").css("margin-left", "35%");
             $("#addtexto").css("display", "none");
             $("#img_comentario").css("display", "block");
             $("#observacion").css("display", "block");
@@ -283,10 +295,10 @@ function evaluacion() {
             }
 
             if (data[0].comentario !== null) {
-                
-                $(".card").css("height","94%");
+
+                $(".card").css("height", "94%");
                 $("#addtexto").css("display", "block");
-                $("#cardComentario").removeClass( "text-center" );                
+                $("#cardComentario").removeClass("text-center");
                 $('#addtexto').text(data[0].comentario);
                 $("#img_comentario").css("display", "none");
                 $("#observacion").css("display", "none");
@@ -387,8 +399,12 @@ function nivelMadurez() {
 
 
 function convertDateFormat(string) {
-	var info = string.split('-');
-	return info[2] + '-' + info[1] + '-' + info[0];
+
+    if (string !== null) {
+        var info = string.split('-');
+        return info[2] + '-' + info[1] + '-' + info[0];
+    }
+
 }
 
 
