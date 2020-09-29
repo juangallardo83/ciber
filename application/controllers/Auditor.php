@@ -49,4 +49,19 @@ class Auditor extends CI_Controller {
         }
     }
 
+    public function recomendacion() {
+        
+        
+        $this->load->Model('Auditores');
+        
+        $iduser = $this->input->post('iduser');
+        $iddetalle = $this->input->post('iddetalle');
+        $recomendacion = $this->input->post('recomendacion');
+        
+        $resultado = $this->Auditores->recomendacion($iduser,$iddetalle,$recomendacion);
+        
+         echo json_encode($resultado);
+        
+    }
+
 }

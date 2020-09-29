@@ -17,7 +17,11 @@ $('#btn_login').click(function () {
 
             } else {
 
-                alert("acceso incorrecto");
+                Swal.fire({
+                        type: 'warning',
+                        title: 'Acceso Incorrecto',
+                        text: 'verifique sus datos',
+                    });
             }
 
         }
@@ -44,7 +48,11 @@ $('#btn_login_auditor').click(function () {
 
             } else {
 
-                alert("acceso incorrecto");
+                 Swal.fire({
+                        type: 'warning',
+                        title: 'Acceso Incorrecto',
+                        text: 'verifique sus datos',
+                    });
             }
 
         }

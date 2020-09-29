@@ -84,7 +84,7 @@
                     <form class="form-inline my-2 my-lg-0">
                         <div class="m-r-50">
                             <img src="<?php echo base_url(); ?>public/images/avatar.png" alt="" width="24px"/>
-                            <small ><?= $this->session->userdata('nomcompleto'); ?></small>
+                            <small ><?= $this->session->userdata('nomauditor'); ?></small>
                         </div>
 
                       
@@ -97,7 +97,9 @@
 
 
 
-        <div class="container mt-5">
+        <div class="container mt-5 text-center">
+            
+            <label class="fuente h1">Controles Usuario a Auditar</label>
 
             <div class="card" >                
                 <div class="card-body">
@@ -176,6 +178,7 @@
                         </div>
                         <input type="hidden" id="idpregunta" value="" > 
                         <input type="hidden" id="iddetalle" value="" > 
+                        
                         <div class="modal-body" id=""> 
                             <div class="row">
                                 <div class="col-3">
@@ -211,9 +214,9 @@
                             <div class="card text-white bg-dark mb-3">
                                 <div class="card-header">Recomendaciones del Auditor</div>
                                 <div class="card-body">
-                                    <textarea style="margin-top: 0px;margin-bottom: 0px;height: 200px;width: 100%;"></textarea>
+                                    <textarea id="recomendacion" style="margin-top: 0px;margin-bottom: 0px;height: 200px;width: 100%;"></textarea>
                                     <div class="text-center">
-                                        <button type="button" class="btn btn-secondary" >Guardar</button>  
+                                        <button type="button" id="btn_cmt_auditor" class="btn btn-secondary" >Guardar</button>  
                                     </div>
 
                                 </div>

@@ -252,12 +252,11 @@ function evaluacion() {
         cache: false,
         url: "http://localhost/ciber/index.php/AutoevaluacionCI/validaEvaluacion",
         success: function (data) {
-            console.log("salida");
-            console.log(data);
-
-
-
-
+            
+            
+            $('#iddetalle').val(data[0].iddetalle);        
+            
+            $("#recomendacion").val("");
 
             $('#evidenciafile').text("");
             $('#observacion').text("No Registra");
@@ -303,14 +302,48 @@ function evaluacion() {
                 $("#img_comentario").css("display", "none");
                 $("#observacion").css("display", "none");
             }
+            
+            if(data[0].obsauditor !== null){
+                $("#recomendacion").val(data[0].obsauditor);
+            }
 
 
         }
     });
+     
     return false;
 
 
 }
+
+
+$('#btn_cmt_auditor').click(function () {
+
+    var datos = {
+        "iduser": $('#iduser').val(),
+        "iddetalle": $('#iddetalle').val(),
+        "recomendacion": $('#recomendacion').val()
+    };
+
+    $.ajax({
+        data: datos,
+        type: "POST",
+        dataType: "json",
+        url: "http://localhost/ciber/index.php/Auditor/recomendacion",
+        success: function (data) {
+
+           if(data){
+               $('#modalEvaluar').modal('toggle');
+               Swal.fire({
+                        type: 'success',
+                        title: 'Recomendaci{on',
+                        text: 'Insertada Conforme',
+                    });
+           }
+
+        }
+    });
+});
 
 
 

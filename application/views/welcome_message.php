@@ -73,7 +73,7 @@
                         <div id="login-column" class="col-md-6">
                             <div id="login-box" class="col-md-12">
                                 <form id="login-form" class="form">
-                                    <h3 class="text-center text-info">Login</h3>
+                                    <h3 class="text-center text-info">Login Usuario Empresa</h3>
                                     <div class="form-group">
                                         <label for="username" class="text-info">Email:</label><br>
                                         <input type="email" name="email" id="email" class="form-control" placeholder="usuario@mail.com">

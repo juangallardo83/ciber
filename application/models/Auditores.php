@@ -16,7 +16,7 @@ class Auditores extends CI_Model {
 
 
 
-       
+
 
         return $query;
     }
@@ -59,6 +59,19 @@ class Auditores extends CI_Model {
         $query = $this->db->query($sql);
 
         return $query->result();
+    }
+
+    public function recomendacion($iduser,$iddetalle,$recomendacion) {
+        
+        
+        $update = array(
+                'obsauditor' => $recomendacion                
+             );
+
+        $this->db->where('iduser', $iduser);
+        $this->db->where('iddetalle', $iddetalle);
+        $query = $this->db->update('detallesubco', $update);
+        return $query;
     }
 
 }

@@ -16,21 +16,17 @@ class UsuarioCI extends CI_Controller {
         $salida = $this->Usuario->validar($email, $pass);
         //$fila = $salida->row_array();
 
-        $nom = "";
+        
         if ($salida->num_rows() > 0) {
             $fila = $salida->row_array();
 
             $this->session->set_userdata('user', $fila["iduser"]);
             $this->session->set_userdata('nomuser', $fila["nombre"]);
+            
+            $salida =  true;
         } else {
-            return false;
+            $salida =  false;
         }
-
-
-
-
-
-
 
 
         echo json_encode($salida);
@@ -52,8 +48,10 @@ class UsuarioCI extends CI_Controller {
 
             $this->session->set_userdata('idauditor', $fila["idauditor"]);
             $this->session->set_userdata('nomauditor', $fila["nomcompleto"]);
+            
+            $salida =  true;
         } else {
-            return false;
+            $salida =  false;
         }
 
 

@@ -5,6 +5,7 @@
         <title>Login </title>       
         <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
+        <link href="<?php echo base_url(); ?>public/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -72,7 +73,7 @@
                         <div id="login-column" class="col-md-6">
                             <div id="login-box" class="col-md-12">
                                 <form id="login-form" class="form" action="" method="post">
-                                    <h3 class="text-center text-info">Login</h3>
+                                    <h3 class="text-center text-info">Login Auditor</h3>
                                     <div class="form-group">
                                         <label for="username" class="text-info">Email:</label><br>
                                         <input type="email" name="email_auditor" id="email_auditor" class="form-control" placeholder="auditor@mail.com">
@@ -101,6 +102,7 @@
 
         <script src="<?php echo base_url(); ?>public/js/jquery-3.5.1.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>public/js/sweetalert2.all.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>public/js/sistema/login.js" type="text/javascript"></script>
 
     </body>

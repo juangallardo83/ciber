@@ -7,6 +7,7 @@
         <link href="<?php echo base_url(); ?>public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
         <link href="<?php echo base_url(); ?>public/iCheck/icheck-bootstrap.min.css" rel="stylesheet" type="text/css"/>   
         <link href="<?php echo base_url(); ?>public/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+
         <link href="<?php echo base_url(); ?>public/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -16,8 +17,10 @@
         }
         ?>
 
-<?php require_once 'component/navbar.php'; ?>
-        <div class="container mt-5">
+        <?php require_once 'component/navbar.php'; ?>
+        <div class="container mt-5 text-center">
+
+            <label class="fuente h1">Controles Críticos de Ciberseguridad</label>
 
             <div class="card" >                
                 <div class="card-body">
@@ -57,9 +60,9 @@
                 </div>
             </div>
         </div>
-        
-        
-        
+
+
+
         <div class="modal fade" id="modalAuditor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document" style="max-width: 600px;;margin-top: 200px;">
                 <div class="modal-content">
